@@ -25,7 +25,6 @@ unless ActiveRecord::Base.connection.table_exists?(:photos)
     t.string :location
     t.date :date
     t.integer :photographer_id
-    t.integer :album_id
   end  
 end
 
@@ -38,8 +37,8 @@ end
 
 unless ActiveRecord::Base.connection.table_exists?(:albums_photos)
   ActiveRecord::Base.connection.create_table :albums_photos, id: false do |t|
-    t.belongs_to :photo, index: true
-    t.belongs_to :album, index: true
+    t.integer :photo_id
+    t.integer :album_id
   end  
 end
 
