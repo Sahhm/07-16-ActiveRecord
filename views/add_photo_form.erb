@@ -1,0 +1,22 @@
+Add a photo.
+<form action="add_photo">
+  <input type="text" placeholder="Enter Photo Title" name ="title"><br>
+  <input type="text" placeholder="Enter Photo Location" name ="location"><br>
+  <input type="text" placeholder="Year of Photo" name ="date"><br>
+  <input type="text" placeholder="Enter Photo URL" name ="url"><br>
+  Select Photographer:
+  <select name="photographer_id">
+    <% Photographer.all.each do |pic| %>
+      <option value="<%= pic.id %>"><%= pic.name %></option>
+    <% end %>
+  </select><br>
+  Add this photo to an album:
+  <select name="album_id">
+    <% Album.all.each do |pic| %>
+      <option value="<%= pic.id %>"><%= pic.subject %></option>
+    <% end %>
+  </select>
+  
+  <br> 
+  <input type="submit">
+</form>  

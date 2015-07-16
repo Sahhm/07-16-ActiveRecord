@@ -1,0 +1,19 @@
+#photo {
+  height: 300px;
+}
+
+li {
+  margin-top: 30px;
+  
+}
+
+input {
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+select {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

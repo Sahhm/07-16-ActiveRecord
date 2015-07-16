@@ -1,5 +1,5 @@
 <h1>All Photos</h1>
-
+<img src=http://www.pillaroftruthministry.com/wp-content/uploads/2015/02/small-gold-star.gif></img>Indicates a Top Photo
 <ul>
    <% Photo.all.each do |pic| %>
      <li>
@@ -13,8 +13,8 @@
           <%end%>
        <%end%>
      </li>
-     <img src=<%= pic.url %> style="height: 300px;"></img>
-   <% end %>
+     <img id="photo" src=<%= pic.url %>></img>
+   <% end %><br>
 </ul>
      
      
