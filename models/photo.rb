@@ -8,7 +8,7 @@ class Photo < ActiveRecord::Base
   
   
   def top_photo?
-    if self.albums.length >= 3
+    if self.albums.length >= 2
       true
     else
       false

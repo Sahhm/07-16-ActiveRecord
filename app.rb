@@ -1,6 +1,8 @@
 require "pry"
 require "active_record"
 require "sqlite3"
+require "sinatra"
+require "sinatra/reloader"
 
 ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'pics.db')
 
@@ -11,6 +13,8 @@ ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
 require_relative "models/photographer.rb"
 require_relative "models/photo.rb"
 require_relative "models/album.rb"
+
+require_relative "controllers/main.rb"
 
 unless ActiveRecord::Base.connection.table_exists?(:photographers)
   ActiveRecord::Base.connection.create_table :photographers do |t|
@@ -42,4 +46,3 @@ unless ActiveRecord::Base.connection.table_exists?(:albums_photos)
   end  
 end
 
-binding.pry
