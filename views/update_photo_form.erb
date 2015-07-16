@@ -1,0 +1,22 @@
+<form action="update_photo">
+Select a photo to update.
+  <select name="photo_id">
+    <% Photo.all.each do |pic| %>
+      <option value="<%= pic.id %>"><%= pic.title %></option>
+    <% end %>
+  </select><br>
+  <input type="text" placeholder="Enter Photo Title" name ="title"><br>
+  <input type="text" placeholder="Enter Photo Location" name ="location"><br>
+  <input type="text" placeholder="Year of Photo" name ="date"><br>
+  <input type="text" placeholder="Enter Photo URL" name ="url"><br>
+  Select Photographer:
+  <select name="photographer_id">
+    <% Photographer.all.each do |pic| %>
+      <option value="<%= pic.id %>"><%= pic.name %></option>
+    <% end %>
+  </select><br>
+  
+  
+  <br> 
+  <input type="submit">
+</form>  
