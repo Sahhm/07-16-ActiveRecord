@@ -1,6 +1,7 @@
 <h1>Click the photo you wish to delete.</h1>
 
 <ul>
+  <%#loops through all photos%>
    <% Photo.all.each do |pic| %>
      <li>
       Photo Title - "<%= pic.title %>"<br>  Location - <%=pic.location%><br> Date - <%=pic.date%><br>
@@ -10,6 +11,7 @@
           <%end%>
        <%end%>
      </li>
+     <%#turns pictures into links that sends to desired link for deletion%>
     <a href="/delete_photo/<%=pic.id%>"> <img id="photo" src=<%= pic.url %>></img></a>
    <% end %><br>
 </ul>
