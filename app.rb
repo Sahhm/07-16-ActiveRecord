@@ -1,12 +1,15 @@
+
+require 'rubygems'
+require 'bundler/setup'
 require "pry"
 require "active_record"
 require "sqlite3"
-
-
 require "sinatra"
 require "sinatra/reloader"
 
-ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'pics.db')
+configure :development do
+  ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'pics.db')
+end
 
 # So that ActiveRecord explains the SQL it's running in the logs.
 ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
