@@ -1,0 +1,27 @@
+<form action="confirm_delete">
+  <h1>All these photos will be deleted when deleting this photographer</h1>
+  <img src=http://www.pillaroftruthministry.com/wp-content/uploads/2015/02/small-gold-star.gif></img>Indicates a Top Photo
+  <ul>
+   <%a = Photographer.find(params["photographer_id"])%>
+   <% @b = params["photographer_id"]%>
+     <% a.photos.each do |pic| %>
+    
+       
+       <li>
+         <%if pic.top_photo? == true%>
+           <img src=http://www.pillaroftruthministry.com/wp-content/uploads/2015/02/small-gold-star.gif></img>
+         <%end%>
+        Photo Title - "<%= pic.title %>"<br>  Location - <%=pic.location%><br> Date - <%=pic.date%><br>
+          <%Photographer.all.each do |a| %>
+            <% if a.id == pic.photographer_id%>
+              Name - <%=a.name%>
+            <%end%>
+       
+        <%end%>
+       </li>
+       <img id="photo" src=<%= pic.url %>></img>
+       <input type="hidden" name="photographer_id" value=<%=@b%>>
+     <% end %><br>
+  </ul>
+  <input type="submit">
+</form> 
