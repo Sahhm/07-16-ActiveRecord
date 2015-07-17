@@ -4,7 +4,7 @@ Select a photo to update.
     <% Photo.all.each do |pic| %>
       <option value="<%= pic.id %>"><%= pic.title %></option>
     <% end %>
-  </select><br>
+  </select><br>Enter new information in the fields you wish to update:<br>
   <input type="text" placeholder="Enter Photo Title" name ="title"><br>
   <input type="text" placeholder="Enter Photo Location" name ="location"><br>
   <input type="text" placeholder="Year of Photo" name ="date"><br>

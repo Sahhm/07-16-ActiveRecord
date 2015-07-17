@@ -58,7 +58,14 @@ get "/update_photo" do
 end
   
   
-  
+get "/add_album_form" do
+  erb :"add_album_form"
+end
+
+get "/add_album" do
+  Album.create(subject: params["subject"])
+  erb :"add_album"
+end
   
   
   

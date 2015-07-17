@@ -17,3 +17,10 @@ select {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+.column {
+  float: left;
+  margin-left: 5%;
+  margin-right: 5%;
+  
+}

@@ -8,6 +8,7 @@ require "sinatra/reloader"
 
 configure :development do
   require "sqlite3"
+  set :bind, '0.0.0.0'
   ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'pics.db')
   
 end
@@ -58,7 +59,7 @@ end
 unless ActiveRecord::Base.connection.table_exists?(:albums)
   ActiveRecord::Base.connection.create_table :albums do |t|
     t.string :subject
-    t.integer :photographer_id
+    
   end  
 end
 
