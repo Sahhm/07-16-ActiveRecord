@@ -80,8 +80,9 @@ get "/delete_photo_form" do
   erb :"delete_photo_form"
 end
 
-get "/delete_photo" do
-  Photo.create(name: params["name"], hometown: params["hometown"])
+get "/delete_photo/:x" do
+  a = Photo.find(params["x"])
+  a.delete
   erb :"delete_photo"
 end
 
