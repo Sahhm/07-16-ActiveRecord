@@ -3,25 +3,17 @@ require 'rubygems'
 require 'bundler/setup'
 require "pry"
 require "active_record"
-require "sqlite3"
 require "sinatra"
 require "sinatra/reloader"
 
 configure :development do
+  require "sqlite3"
   ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'pics.db')
+  
 end
 
-# So that ActiveRecord explains the SQL it's running in the logs.
-ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
-
-# Models
-require_relative "models/photographer.rb"
-require_relative "models/photo.rb"
-require_relative "models/album.rb"
-
-require_relative "controllers/main.rb"
-
-configure :production do  
+configure :production do 
+  require "pg" 
   db = URI.parse(ENV['DATABASE_URL'])
 
   ActiveRecord::Base.establish_connection(
@@ -33,6 +25,18 @@ configure :production do
     :encoding => 'utf8'
   )
 end
+  
+# So that ActiveRecord explains the SQL it's running in the logs.
+ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
+
+# Models
+require_relative "models/photographer.rb"
+require_relative "models/photo.rb"
+require_relative "models/album.rb"
+
+require_relative "controllers/main.rb"
+
+
 
 
 unless ActiveRecord::Base.connection.table_exists?(:photographers)
