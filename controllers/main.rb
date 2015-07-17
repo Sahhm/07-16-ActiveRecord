@@ -85,14 +85,6 @@ get "/delete_photo" do
   erb :"delete_photo"
 end
 
-get "/delete_album_form" do
-  erb :"delete_album_form"
-end
-
-get "/delete_album" do
-  Album.create(name: params["name"], hometown: params["hometown"])
-  erb :"delete_album"
-end  
   
 get "/delete_photographer_form" do
   erb :"delete_photographer_form"
@@ -108,4 +100,14 @@ get "/confirm_delete" do
   u.photos.destroy_all
   u.delete
   erb :"homepage"
+end
+
+get "/delete_album_form" do
+  erb :"delete_album_form"
+end
+
+get "/delete_album" do
+ a = Album.find(params["album_id"])
+ a.delete
+ erb :"delete_album"
 end

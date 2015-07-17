@@ -1,0 +1,13 @@
+<form action="delete_album">
+  An album to delete:(This will not delete the photos assigned to this album)<br>
+  <select name="album_id">
+    <% Album.all.each do |pic| %>
+      <option value="<%= pic.id %>"><%= pic.subject %></option>
+    <% end %>
+  </select><br>
+ 
+  
+  <br>
+
+  <input type="submit">
+</form> 
