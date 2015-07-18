@@ -1,0 +1,16 @@
+<form action="view_by_album">
+  Which album would you like to view?<br>
+<ul>
+  <%#loops through all photos%>
+   <% Album.all.each do |pic| %>
+     <li>
+      <a href ="/view_by_album/<%=pic.id%>"><%=pic.subject%></a><br>
+     </li>
+   <% end %><br>
+</ul>
+ 
+  
+  <br>
+
+  <input type="submit">
+</form> 

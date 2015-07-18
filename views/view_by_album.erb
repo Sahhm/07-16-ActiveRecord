@@ -1,0 +1,16 @@
+Pictures in the <%=@a.subject%> Album
+
+<%@a.photos.each do |pic|%>
+ <li>
+   <%if pic.top_photo? == true%>
+     <img src=http://www.pillaroftruthministry.com/wp-content/uploads/2015/02/small-gold-star.gif></img>
+   <%end%>
+  Photo Title - "<%= pic.title %>"<br>  Location - <%=pic.location%><br> Date - <%=pic.date%><br>
+    <%Photographer.all.each do |a| %>
+      <% if a.id == pic.photographer_id%>
+        Name - <%=a.name%>
+      <%end%>
+   <%end%>
+ </li>
+  <img id="photo" src=<%= pic.url %>></img>
+<%end%>

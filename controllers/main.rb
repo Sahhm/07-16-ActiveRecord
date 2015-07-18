@@ -128,3 +128,16 @@ get "/delete_album" do
  a.delete
  erb :"delete_album"
 end
+
+get "/view_by_album_form" do
+  erb :"view_by_album_form"
+  
+end
+
+get "/view_by_album/:x" do
+  
+  @a = Album.find(params["x"])
+  
+  erb :"view_by_album"
+  
+end
